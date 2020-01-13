@@ -9,6 +9,8 @@ The link to Udemy Spring Framework 5 Online course [here.](https://courses.sprin
 ## Objectives of this application
 
 Learning the following concepts -
-  * JPA
+  * JPA Entities using @Entity annotation
+  * @id, @GeneratedValue annotation to uniquely identify books and authors
+  * @ManyToMany to specify the many to many relationship between books and authors
   * Hibernate
   * H2
