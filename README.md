@@ -19,3 +19,15 @@ Learning the following concepts -
      2. Indicates that a bean should run when it is contained within a SpringApplication. 
      3. Multiple CommandLineRunner beans can be defined within the same application context and can be ordered using the Ordered interface or @Order annotation.
      4. provides access to application arguments as string array
+     
+     
+## Common errors encountered while developing the application
+
+1. Adding relationships to Publisher and Book entities
+
+  org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : guru.springframework.spring5webapp.model.Book.publisher -> guru.springframework.spring5webapp.model.Publisher
+  
+  Reason - bookRepository.save(jee) was trying to save book which was accessing a publisher object not present in the database. 
+  Resolution - Saving the publisher using publisherRepository.save(publisher) after initializing publisher 
+
+
