@@ -14,3 +14,8 @@ Learning the following concepts -
   * @ManyToMany to specify the many to many relationship between books and authors
   * Hibernate
   * H2
+  * CommandLineRunner interface - 
+     1. Functional Interface with a run method
+     2. Indicates that a bean should run when it is contained within a SpringApplication. 
+     3. Multiple CommandLineRunner beans can be defined within the same application context and can be ordered using the Ordered interface or @Order annotation.
+     4. provides access to application arguments as string array
