@@ -1,39 +1,34 @@
 package guru.springframework.spring5webapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String name;
     private String addressLine;
     private String city;
     private String state;
     private int zipcode;
 
+    @OneToMany
+    @JoinColumn(name = "publisher_id")
+    private Set<Book> books = new HashSet<Book>();
+
     public Publisher() {
     }
 
-    public Publisher(String name, String addressLine, String city, String state, int zipcode){
-        this.name = name;
-        this.addressLine = addressLine;
-        this.city = city;
-        this.state = state;
-        this.zipcode = zipcode;
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -77,17 +72,27 @@ public class Publisher {
         this.zipcode = zipcode;
     }
 
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Publisher publisher = (Publisher) o;
-        return id == publisher.id;
+
+        Publisher book = (Publisher) o;
+
+        return id != null ? id.equals(book.id) : book.id == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return id != null ? id.hashCode() : 0;
     }
 
     @Override
