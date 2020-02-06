@@ -19,7 +19,8 @@ Learning the following concepts -
      2. Indicates that a bean should run when it is contained within a SpringApplication. 
      3. Multiple CommandLineRunner beans can be defined within the same application context and can be ordered using the Ordered interface or @Order annotation.
      4. provides access to application arguments as string array
-     
+  * Spring MVC  
+  * ThymeLeaf
      
 ## Common errors encountered while developing the application
 
